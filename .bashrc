@@ -14,3 +14,10 @@ export EDITOR=nvim
 
 # set alias config for my dotfiles
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+# Function for combining mkdir & cd
+mkcdir ()
+{
+  mkdir -p -- "$1" &&
+  cd    -P -- "$1"
+}
