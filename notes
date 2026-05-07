@@ -1,0 +1,30 @@
+# If I ever need to actually setup Secure Boot
+https://www.rodsbooks.com/efi-bootloaders/secureboot.html
+
+# Installing patches with git branches
+https://philiptk.com/Blog/Suckless_Tutorial/
+
+# Create timeshift backup
+https://computingforgeeks.com/timeshift-backup-restore-linux/
+
+sudo timeshift --create --comments "Insert comments here" --other-tag-nonsense
+
+# Remove merge conflict headers (add/add)
+:g/^<\{7}\|^|\{7}\|^=\{7}\|^>\{7}/d
+
+# Patching the kernel
+https://www.funwithlinux.net/linux-kernel-basics/how-to-patch-a-kernel-a-step-by-step-guide/
+
+# PGP Key server
+hkps://pgpkeys.eu
+
+# webgl samples 
+https://webglsamples.org
+
+# Enable BORE
+sudo sysctl -w kernel.sched_bore=1
+
+# Kernel Variable Adjustments
+kernel.sched_bore=1         # Enable BORE CPU Scheduler
+vm.diry_background_ratio=20 # About memory freeing pressure and threshold
+vm.dirty_ratio=80           # About memory freeing pressure and threshold
