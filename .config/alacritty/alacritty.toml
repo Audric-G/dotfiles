@@ -1,0 +1,5 @@
+general.import = [
+  "~/.config/alacritty/themes/gruvbox-light.toml",
+  "~/.config/alacritty/config/font.toml",
+  "~/.config/alacritty/config/appearance.toml"
+]

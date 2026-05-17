@@ -28,3 +28,6 @@ sudo sysctl -w kernel.sched_bore=1
 kernel.sched_bore=1         # Enable BORE CPU Scheduler
 vm.diry_background_ratio=20 # About memory freeing pressure and threshold
 vm.dirty_ratio=80           # About memory freeing pressure and threshold
+
+# CachyOS Package Repo Search
+https://packages.cachyos.org

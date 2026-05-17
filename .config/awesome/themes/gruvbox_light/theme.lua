@@ -1,6 +1,5 @@
 local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
-local rnotification = require("ruled.notification")
 local dpi = xresources.apply_dpi
 
 local gfs = require("gears.filesystem")
@@ -55,26 +54,21 @@ theme.fg_focus      = "#ffffff"
 theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 
-theme.useless_gap         = dpi(0)
-theme.border_width        = dpi(0)
-theme.border_color_normal = "#000000"
-theme.border_color_active = "#bdae93"
-theme.border_color_marked = "#91231c"
+theme.useless_gap   = dpi(2)
+theme.border_width  = dpi(5)
+theme.border_normal = theme.base00 
+theme.border_focus  = theme.base03
+theme.border_marked = "#91231c"
 
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
 theme.menu_submenu_icon = themes_path.."default/submenu.png"
-theme.menu_height = dpi(25)
+theme.menu_height = dpi(30)
 theme.menu_width  = dpi(150)
 
--- Set different colors for urgent notifications.
-rnotification.connect_signal('request::rules', function()
-    rnotification.append_rule {
-        rule       = { urgency = 'critical' },
-        properties = { bg = '#ff0000', fg = '#ffffff' }
-    }
-end)
+-- Generate Awesome icon:
+theme.awesome_icon = themes_path.."gruvbox_light/awesome-icon.png" 
 
 -- You can use your own layout icons like this:
 theme.layout_fairh      = themes_path.."default/layouts/fairhw.png"

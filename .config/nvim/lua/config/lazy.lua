@@ -22,3 +22,6 @@ require("lazy").setup({
 })
 
 -- require("lazy").setup("config.plugins")
+
+-- Make nvim match terminal transparency
+vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
