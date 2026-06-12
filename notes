@@ -31,3 +31,28 @@ vm.dirty_ratio=80           # About memory freeing pressure and threshold
 
 # CachyOS Package Repo Search
 https://packages.cachyos.org
+
+# Linux LEO - The Law Enforcement and Forensic Examiner's Introduction to Linux
+https://linuxleo.com
+
+# Who the fuck is Ethos Capital
+
+# list fonts
+fc-list
+
+# Setup dotfiles repo
+git init --bare $HOME/.dotfiles
+
+# Setup from existing dotfile repo
+git clone --bare <dotfile url> $HOME/.dotfiles
+
+# Setup Alias
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+# Checkout files and clean status
+dotfiles checkout
+dotfiles config --local status.showUntrackedFiles no
+
+# Push to github
+dotfiles remote add origin <repo url>
+dotfiles push -u origin main

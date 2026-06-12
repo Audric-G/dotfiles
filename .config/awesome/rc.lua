@@ -188,7 +188,7 @@ awful.screen.connect_for_each_screen(function(s)
         filter  = awful.widget.taglist.filter.all,
         buttons = taglist_buttons,
         style   = {
-          shape = gears.shape.losange,
+          shape = gears.shape.rectangle,
         },
         layout = {
           spacing = 10,
@@ -389,7 +389,10 @@ globalkeys = gears.table.join(
               end,
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end,
+    awful.key({ modkey }, "p",
+              function()
+                  awesome.spawn("rofi -show drun")
+              end,
               {description = "show the menubar", group = "launcher"})
 )
 
@@ -508,29 +511,32 @@ root.keys(globalkeys)
 -- {{{ Rules
 -- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
-    -- All clients will match this rule.
-    { rule = { },
-      properties = { border_width = beautiful.border_width,
-                     border_color = beautiful.border_normal,
-                     focus = awful.client.focus.filter,
-                     raise = true,
-                     keys = clientkeys,
-                     buttons = clientbuttons,
-                     screen = awful.screen.preferred,
-                     placement = awful.placement.no_overlap+awful.placement.no_offscreen
-     },
-     
---   rule = { class = "Discord" },
---    properties = { border_width = beautiful.border_width,
---                   border_color = beautiful.border_normal,
---                   focus = awful.client.focus.filter,
---                   raise = true,
---                   keys = clientkeys,
---                   buttons = clientbuttons,
---                   screen = "DP-2", --Set my portrait monitor as the default menu for discord
---                   placement = awful.placement.no_overlap+awful.placement.no_offscreen
---   },
-    },
+    
+    { 
+        -- All clients will match this rule.
+        rule = { },
+        properties = { border_width = beautiful.border_width,
+                       border_color = beautiful.border_normal,
+                       focus = awful.client.focus.filter,
+                       raise = true,
+                       keys = clientkeys,
+                       buttons = clientbuttons,
+                       screen = awful.screen.preferred,
+                       placement = awful.placement.no_overlap+awful.placement.no_offscreen
+       },
+         
+       -- Start discord only specific monitor
+--       rule = { class = "Discord" },
+--       properties = { border_width = beautiful.border_width,
+--                      border_color = beautiful.border_normal,
+--                      focus = awful.client.focus.filter,
+--                      raise = true,
+--                      keys = clientkeys,
+--                      buttons = clientbuttons,
+--                      screen = "DP-2", --Set my portrait monitor as the default menu for discord
+--                      placement = awful.placement.no_overlap+awful.placement.no_offscreen
+--       },
+   },
 
     -- Floating clients.
     { rule_any = {
@@ -549,6 +555,7 @@ awful.rules.rules = {
           "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
           "Wpa_gui",
           "veromix",
+          "XIVLauncher",
           "xtightvncviewer"},
 
         -- Note that the name property shown in xprop might be set slightly after creation of the client
