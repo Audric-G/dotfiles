@@ -191,7 +191,7 @@ awful.screen.connect_for_each_screen(function(s)
           shape = gears.shape.rectangle,
         },
         layout = {
-          spacing = 10,
+          spacing = 20,
           spacing_widget = {
             {
               forced_width = 5,
@@ -391,7 +391,7 @@ globalkeys = gears.table.join(
     -- Menubar
     awful.key({ modkey }, "p",
               function()
-                  awesome.spawn("rofi -show drun")
+                  awesome.spawn("rofi -show drun -p 'Applications'")
               end,
               {description = "show the menubar", group = "launcher"})
 )
@@ -525,20 +525,14 @@ awful.rules.rules = {
                        placement = awful.placement.no_overlap+awful.placement.no_offscreen
        },
          
-       -- Start discord only specific monitor
---       rule = { class = "Discord" },
---       properties = { border_width = beautiful.border_width,
---                      border_color = beautiful.border_normal,
---                      focus = awful.client.focus.filter,
---                      raise = true,
---                      keys = clientkeys,
---                      buttons = clientbuttons,
---                      screen = "DP-2", --Set my portrait monitor as the default menu for discord
---                      placement = awful.placement.no_overlap+awful.placement.no_offscreen
---       },
    },
-
+   
+     -- Start discord only specific monitor
+     { rule = { class = "discord" },
+     properties = { screen = "DP-2", }}, --Set my portrait monitor as the default menu for discord 
+   
     -- Floating clients.
+    --
     { rule_any = {
         instance = {
           "DTA",  -- Firefox addon DownThemAll.
@@ -556,6 +550,7 @@ awful.rules.rules = {
           "Wpa_gui",
           "veromix",
           "XIVLauncher",
+          "Thunar",
           "xtightvncviewer"},
 
         -- Note that the name property shown in xprop might be set slightly after creation of the client

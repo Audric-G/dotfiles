@@ -56,3 +56,5 @@ dotfiles config --local status.showUntrackedFiles no
 # Push to github
 dotfiles remote add origin <repo url>
 dotfiles push -u origin main
+
+# chwd (CachyOS Hardware) can be used to check graphics drivers
