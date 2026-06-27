@@ -80,6 +80,16 @@ hl.bind(mainMod .. " + P", hl.dsp.exec_cmd(ipc .. " sessionMenu toggle"))
 ----   Custom   -----
 ---------------------
 
+-- Dispatchers documentation
+-- https://wiki.hypr.land/Configuring/Basics/Dispatchers/
+
 -- AwesomeWM like fullscreen and monocle
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ action = "toggle" }))
 hl.bind(mainMod .. " + M", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }))
+
+-- Jumps mouse to other monitor
+-- +1/-2 are relative monitor positions, essentially just a toggle in a 2 monitor setup
+hl.bind(mainMod .. " + period", hl.dsp.focus({ monitor = "+1" }))
+
+-- Move active window to other monitor
+hl.bind(mainMod .. " + O", hl.dsp.window.move({ monitor = "+1" }))
