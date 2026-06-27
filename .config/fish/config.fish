@@ -15,6 +15,9 @@ set -gx EDITOR nvim # Set NeoVim as default editor
 # set alias config for my dotfiles
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
+# windows-like clip for hyprland
+alias clip='/usr/bin/wl-copy'
+
 ## autostart hyprland without display manager
 #if uwsm check may-start
 #    exec uwsm start hyprland.desktop
