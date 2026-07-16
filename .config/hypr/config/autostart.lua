@@ -20,6 +20,7 @@ local desktopShell  = "qs -c noctalia-shell"
 local wallpaper     = "hyprpaper"
 local clipManText   = "wl-paste --type text --watch cliphist store"
 local clipManImage  = "wl-paste --type image --watch cliphist store"
+local steam         = "steam -silent %U" -- start steam without opening client, faster first launch
 
 hl.on("hyprland.start", function ()
     hl.exec_cmd(notificationd)
@@ -28,4 +29,5 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd(wallpaper)
     hl.exec_cmd(clipManText)
     hl.exec_cmd(clipManImage)
+    hl.exec_cmd(steam)
 end)

@@ -58,3 +58,10 @@ dotfiles remote add origin <repo url>
 dotfiles push -u origin main
 
 # chwd (CachyOS Hardware) can be used to check graphics drivers
+
+# installing xorg-xhost can resolve some issues with x applications not being able to properly authenticate
+
+# mount and unmount remote cloud storage with rclone --daemon option runs in background
+rclone mount remote:path/to/files /path/to/local/mount --daemon
+
+fusermount3 -u /path/to/local/mount
