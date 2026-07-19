@@ -65,3 +65,6 @@ dotfiles push -u origin main
 rclone mount remote:path/to/files /path/to/local/mount --daemon
 
 fusermount3 -u /path/to/local/mount
+
+# application class names can be found by finding what is used with Exec in the applications .desktop file in /usr/share/applications
+grep Exec /usr/share/applications/<application>.desktop

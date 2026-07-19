@@ -65,3 +65,21 @@ hl.window_rule({
     workspace = 6,
     fullscreen = true,
 })
+
+-- Open on workspace 2
+hl.window_rule({
+    name = "open-on-2",
+    match = { class = "steam" },
+
+    workspace = 2,
+    fullscreen = true,
+})
+
+-- Open on workspace 1
+hl.window_rule({
+    name = "open-on-1",
+    match = { class = "vivaldi-stable" },
+
+    workspace = 1,
+    fullscreen = true,
+})
