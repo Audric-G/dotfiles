@@ -63,7 +63,7 @@ hl.window_rule({
     match = { class = "discord" },
 
     workspace = 6,
-    fullscreen = true,
+    --fullscreen = true,
 })
 
 -- Open on workspace 2
@@ -72,7 +72,7 @@ hl.window_rule({
     match = { class = "steam" },
 
     workspace = 2,
-    fullscreen = true,
+    --fullscreen = true,
 })
 
 -- Open on workspace 1
@@ -81,5 +81,5 @@ hl.window_rule({
     match = { class = "vivaldi-stable" },
 
     workspace = 1,
-    fullscreen = true,
+    --fullscreen = true,
 })
