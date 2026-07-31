@@ -83,6 +83,19 @@ hl.bind(mainMod .. " + P", hl.dsp.exec_cmd(ipc .. " sessionMenu toggle"))
 -- Dispatchers documentation
 -- https://wiki.hypr.land/Configuring/Basics/Dispatchers/
 
+-- Screenshot bindings
+-- Freeze screen region select on just PRINT press only to clipboard
+hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot -zm region --clipboard-only"))
+
+-- Freeze screen window select on SHIFT + PRINT press only to clipboard
+hl.bind("SHIFT + PRINT", hl.dsp.exec_cmd("hyprshot -zm window --clipboard-only"))
+
+-- Freeze screen region select on mainMod + PRINT 
+hl.bind(mainMod .. " + PRINT", hl.dsp.exec_cmd("hyprshot -zm region"))
+
+-- Freeze screen window select on mainMod + SHIFT + PRINT 
+hl.bind(mainMod .. " + SHIFT + PRINT", hl.dsp.exec_cmd("hyprshot -zm window"))
+
 -- AwesomeWM like fullscreen and monocle
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ action = "toggle" }))
 hl.bind(mainMod .. " + M", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }))
