@@ -13,7 +13,7 @@ local suppressMaximizeRule = hl.window_rule({
     match = { class = ".*" },
 
     suppress_event = "maximize",
-    no_initial_focus = true,
+    --no_initial_focus = true,
 })
 -- suppressMaximizeRule:set_enabled(false)
 
