@@ -18,9 +18,6 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 # windows-like clip for hyprland
 alias clip='/usr/bin/wl-copy'
 
-# use node lts
-nvm use lts
-
 ## autostart hyprland without display manager
 #if uwsm check may-start
 #    exec uwsm start hyprland.desktop

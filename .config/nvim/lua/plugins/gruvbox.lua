@@ -1,11 +1,12 @@
-return { 
-  "ellisonleao/gruvbox.nvim", 
-  priority = 1000, 
-  config = function()
-    vim.o.background = "light"
-    vim.cmd([[colorscheme gruvbox]])
-  end, 
-  opts = {
-    transparent_mode = true,
-  } 
+return {
+  -- add gruvbox
+  { "ellisonleao/gruvbox.nvim" },
+
+  -- Configure LazyVim to load gruvbox
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "gruvbox",
+    },
+  },
 }
