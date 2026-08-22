@@ -68,3 +68,6 @@ fusermount3 -u /path/to/local/mount
 
 # application class names can be found by finding what is used with Exec in the applications .desktop file in /usr/share/applications
 grep Exec /usr/share/applications/<application>.desktop
+
+# systemd-analyze can be used to display boot times, systemd-analyze blame provides more logs
+# high initrd boot times can potentially be resolved by replugging in all USB devices - why?
