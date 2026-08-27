@@ -71,3 +71,5 @@ grep Exec /usr/share/applications/<application>.desktop
 
 # systemd-analyze can be used to display boot times, systemd-analyze blame provides more logs
 # high initrd boot times can potentially be resolved by replugging in all USB devices - why?
+
+# ethtool -p can be used to blink LED lights, useful for when there are multiple ports that need to be physically identified
