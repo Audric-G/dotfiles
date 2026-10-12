@@ -88,13 +88,13 @@ local ipc = "noctalia msg"
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(ipc .. " panel-toggle launcher"))
 
 -- Open Control Center
-hl.bind(mainMod .. " + S", hl.dsp.exec_cmd(ipc .. " panel-toggle controlCenter"))
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd(ipc .. " panel-toggle control-center"))
 
 -- Open Settings menu
-hl.bind(mainMod .. " + comma", hl.dsp.exec_cmd(ipc .. " panel-toggle settings"))
+--hl.bind(mainMod .. " + comma", hl.dsp.exec_cmd(ipc .. " panel-toggle settings"))
 
 -- Open session menu
-hl.bind(mainMod .. " + P", hl.dsp.exec_cmd(ipc .. " panel-toggle sessionMenu"))
+hl.bind(mainMod .. " + P", hl.dsp.exec_cmd(ipc .. " panel-toggle session"))
 
 -- Lock Session
 hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd(ipc .. " session lock"))
