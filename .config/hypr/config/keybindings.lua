@@ -1,40 +1,46 @@
-local programs = require ("config.programs")
+local programs = require("config.programs")
 
 ---------------------
 ---- KEYBINDINGS ----
 ---------------------
 
 -- local mainMod = "SUPER"  -- Sets "Windows" key as main modifier
-local mainMod = "SUPER"      -- Sets "L-Alt" key as main modifier
-local secMod  = "MOD1"
+local mainMod = "SUPER" -- Sets "L-Alt" key as main modifier
+local secMod = "MOD1"
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(programs["terminal"]))
 local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
-hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+hl.bind(
+	mainMod .. " + SHIFT + Q",
+	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
+)
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(programs["fileManager"]))
 hl.bind(mainMod .. " + SPACE", hl.dsp.window.float({ action = "toggle" }))
 --hl.bind(mainMod .. " + P", hl.dsp.exec_cmd(programs["menu"]))
 --hl.bind(mainMod .. " + R", hl.dsp.window.pseudo())
-hl.bind(mainMod .. " + B", hl.dsp.layout("togglesplit"))    -- dwindle only
+hl.bind(mainMod .. " + B", hl.dsp.layout("togglesplit")) -- dwindle only
 
 -- Show cliphist history with rofi
-hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd("cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"))
+hl.bind(
+	mainMod .. " + SHIFT + V",
+	hl.dsp.exec_cmd("cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy")
+)
 
 -- Move focus with mainMod + arrow keys
 -- Vim movement
-hl.bind(mainMod .. " + H",  hl.dsp.focus({ direction = "left" }))
+hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
-hl.bind(mainMod .. " + K",    hl.dsp.focus({ direction = "up" }))
-hl.bind(mainMod .. " + J",  hl.dsp.focus({ direction = "down" }))
+hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "up" }))
+hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down" }))
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 10 do
-    local key = i % 10 -- 10 maps to key 0
-    hl.bind(secMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
-    hl.bind(secMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
+	local key = i % 10 -- 10 maps to key 0
+	hl.bind(secMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
+	hl.bind(secMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
 -- Example special workspace (scratchpad)
@@ -43,10 +49,10 @@ end
 
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(secMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(secMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(secMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
-hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
+hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Laptop multimedia keys for volume and LCD brightness
@@ -68,13 +74,30 @@ hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 ---------------------
 
 -- Want to see all controls?
--- qs -c noctalia-shell ipc show 
-local ipc = "qs -c noctalia-shell ipc call"
+-- qs -c noctalia-shell ipc show
+--local ipc = "qs -c noctalia-shell ipc call"
 
-hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(ipc .. " launcher toggle"))
-hl.bind(mainMod .. " + S", hl.dsp.exec_cmd(ipc .. " controlCenter toggle"))
-hl.bind(mainMod .. " + comma", hl.dsp.exec_cmd(ipc .. " settings toggle"))
-hl.bind(mainMod .. " + P", hl.dsp.exec_cmd(ipc .. " sessionMenu toggle"))
+--hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(ipc .. " launcher toggle"))
+--hl.bind(mainMod .. " + S", hl.dsp.exec_cmd(ipc .. " controlCenter toggle"))
+--hl.bind(mainMod .. " + comma", hl.dsp.exec_cmd(ipc .. " settings toggle"))
+--hl.bind(mainMod .. " + P", hl.dsp.exec_cmd(ipc .. " sessionMenu toggle"))
+
+local ipc = "noctalia msg"
+
+-- Open app launcher
+hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(ipc .. " panel-toggle launcher"))
+
+-- Open Control Center
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd(ipc .. " panel-toggle controlCenter"))
+
+-- Open Settings menu
+hl.bind(mainMod .. " + comma", hl.dsp.exec_cmd(ipc .. " panel-toggle settings"))
+
+-- Open session menu
+hl.bind(mainMod .. " + P", hl.dsp.exec_cmd(ipc .. " panel-toggle sessionMenu"))
+
+-- Lock Session
+hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd(ipc .. " session lock"))
 
 ---------------------
 ----   Custom   -----
@@ -90,10 +113,10 @@ hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot -zm region --clipboard-only"))
 -- Freeze screen window select on SHIFT + PRINT press only to clipboard
 hl.bind("SHIFT + PRINT", hl.dsp.exec_cmd("hyprshot -zm window --clipboard-only"))
 
--- Freeze screen region select on mainMod + PRINT 
+-- Freeze screen region select on mainMod + PRINT
 hl.bind(mainMod .. " + PRINT", hl.dsp.exec_cmd("hyprshot -zm region"))
 
--- Freeze screen window select on mainMod + SHIFT + PRINT 
+-- Freeze screen window select on mainMod + SHIFT + PRINT
 hl.bind(mainMod .. " + SHIFT + PRINT", hl.dsp.exec_cmd("hyprshot -zm window"))
 
 -- AwesomeWM like fullscreen and monocle
